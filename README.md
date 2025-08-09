@@ -34,12 +34,7 @@ _T. Hasegawa et al., "[Atomic Switch: Atom/Ion Movement Controlled Devices for B
 * Time resolution became a bottleneck: bridge dynamics occurred faster than my simulation timestep. This further justified moving to C++ for improved granularity.
 * Lesson learned: for long-term simulation projects or networks with fast-changing dynamics, begin in C++ or a similarly performant environment.
 
-### **Takeaways**
-This study gave me more confidence to pursue nonlinear dynamical systems and chaos, complexity, and emergence in practice. I have particularly found conversations surrounding "emergence" as difficult because it is not easily demonstrated. John Conway's Game of Life (https://en.wikipedia.org/wiki/Conway's_Game_of_Life), for example, does do a great job at presenting emergence. But even he did not think anything can be done with his discovery, calling it "finished." (https://youtu.be/R9Plq-D1gEk?si=EYvjvpzMf5HmQZY3&t=458) 
-
-Demonstrating memory in a disorganized system, on my local computer, proved to me that some of my intuitions may be right. At least I have seen that this is worth investigating further.
-
-## **2. Context**
+## **2. Purpose**
 
 ### **Introduction**
 
@@ -112,7 +107,12 @@ The original paper describes a computational model built in MATLAB to simulate A
 
 * Wire currents don't follow the rules of circuit theory because they are nodes in the network dual representation. There is likely a much better way to model current directions in wires by accounting for micro or nano-Ohm resistances per length of wire. In general, however, drawing currents is likely better for visualization than for quantitative value. Despite any faulty edge cases, I think this implementation is sufficient in understanding network dynamics.
 
-## **4. Additional Information**
+## **4. Discussion**
+
+### **Takeaways**
+This study gave me more confidence to pursue nonlinear dynamical systems and chaos, complexity, and emergence in practice. I have particularly found conversations surrounding "emergence" as difficult because it is not easily demonstrated. John Conway's Game of Life (https://en.wikipedia.org/wiki/Conway's_Game_of_Life), for example, does do a great job at presenting emergence. But even he did not think anything can be done with his discovery, calling it "finished." (https://youtu.be/R9Plq-D1gEk?si=EYvjvpzMf5HmQZY3&t=458) 
+
+Demonstrating memory in a disorganized system, on my local computer, proved to me that some of my intuitions may be right. At least I have seen that this is worth investigating further.
 
 ### **Future Directions**
 
