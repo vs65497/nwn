@@ -4,6 +4,8 @@
 
 _Z. Kuncic et al., "[Emergent brain-like complexity from nanowire atomic switch networks: Towards neuromorphic synthetic intelligence](https://ieeexplore.ieee.org/document/8626236)," 2018 IEEE 18th International Conference on Nanotechnology (IEEE-NANO), Cork, Ireland, 2018, pp. 1-3, doi: 10.1109/NANO.2018.8626236._
 
+<br>
+
 ## **1. Overview**
 
 | Network Topology | Input PWM Signal | Network Output Conductance |
@@ -12,27 +14,30 @@ _Z. Kuncic et al., "[Emergent brain-like complexity from nanowire atomic switch 
 
 _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM signal. Right: Output network conductance._
 
-### **Purpose** (Click [here](https://github.com/vs65497/nwn?tab=readme-ov-file#2-purpose) to read more)
+<br>
 
-To reproduce memory-like behavior of a simulated silver-sulfide nanowire network (Ag2S-NWN) seen in Kuncic 2018.
+### **Purpose** ([read more](https://github.com/vs65497/nwn?tab=readme-ov-file#2-purpose))
+
+  * To reproduce memory-like behavior of a simulated silver-sulfide nanowire network (Ag2S-NWN) seen in Kuncic 2018.
 
 ### **Results**
 
-1. Successfully reproduced the topology of a simulated Ag2S-NWN (_see Figure 1, Network Topology_).
-2. Reproduced the response characteristics of the network (based on total conductance of all junctions) by using a PWM input signal (_see Figure 1, Network Output Conductance_). Please see the Discussion section for more details.
+  1. Successfully reproduced the topology of a simulated Ag2S-NWN (_see Figure 1, Network Topology_).
+  2. Reproduced the response characteristics of the network (based on total conductance of all junctions) by using a PWM input signal (_see Figure 1, Network Output Conductance_). Please see the Discussion section for more details.
 
-### **Methods** (Click [here](https://github.com/vs65497/nwn?tab=readme-ov-file#3-methods) to read more)
+### **Methods** ([read more](https://github.com/vs65497/nwn?tab=readme-ov-file#3-methods))
 
-To calculate network voltages, I simultaneously solved KCL equations for all nodes in the network at each timestep. Bridge growth, annihilation, and conductance were calculated based on a model found in the paper T. Hasegawa, 2011.
+  * To calculate network voltages, I simultaneously solved KCL equations for all nodes in the network at each timestep. Bridge growth, annihilation, and conductance were calculated based on a model found in the paper T. Hasegawa, 2011.
+  * _T. Hasegawa et al., "[Atomic Switch: Atom/Ion Movement Controlled Devices for Beyond Von-Neumann Computers](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.201102597)," 2011 Wiley Advanced Materials, doi: 10.1002/adma.201102597._
 
-_T. Hasegawa et al., "[Atomic Switch: Atom/Ion Movement Controlled Devices for Beyond Von-Neumann Computers](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.201102597)," 2011 Wiley Advanced Materials, doi: 10.1002/adma.201102597._
+### **Discussion** ([read more](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion))
 
-### **Discussion** (Click [here](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion) to read more)
+  * Conductance rises and remains elevated in response to PWM pulses, suggesting formation and retention of conductive paths.
+  * Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
+  * Time resolution became a bottleneck: bridge dynamics occurred faster than my simulation timestep. This further justified moving to C++ for improved granularity.
+  * Lesson learned: for long-term simulation projects or networks with fast-changing dynamics, begin in C++ or a similarly performant environment.
 
-* Conductance rises and remains elevated in response to PWM pulses, suggesting formation and retention of conductive paths.
-* Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
-* Time resolution became a bottleneck: bridge dynamics occurred faster than my simulation timestep. This further justified moving to C++ for improved granularity.
-* Lesson learned: for long-term simulation projects or networks with fast-changing dynamics, begin in C++ or a similarly performant environment.
+<br><br><br>
 
 ## **2. Purpose**
 
