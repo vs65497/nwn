@@ -4,28 +4,33 @@
 
 _Z. Kuncic et al., "[Emergent brain-like complexity from nanowire atomic switch networks: Towards neuromorphic synthetic intelligence](https://ieeexplore.ieee.org/document/8626236)," 2018 IEEE 18th International Conference on Nanotechnology (IEEE-NANO), Cork, Ireland, 2018, pp. 1-3, doi: 10.1109/NANO.2018.8626236._
 
-## **1. Results**
+## **1. Overview**
 
-| Network Topology | Input PWM Signal | Output Network Conductance |
+| Network Topology | Input PWM Signal | Network Output Conductance |
 |---------|---------|---------|
-| ![Alt text 1](https://github.com/vs65497/nwn/blob/main/network.png) | ![Alt text 2](https://github.com/vs65497/nwn/blob/main/input.png) | ![Alt text 3](https://github.com/vs65497/nwn/blob/main/output.png) |
+| ![Network Topology](https://github.com/vs65497/nwn/blob/main/network.png) | ![Input PWM Signal](https://github.com/vs65497/nwn/blob/main/input.png) | ![Network Output Conductance](https://github.com/vs65497/nwn/blob/main/output.png) |
 
 _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM signal. Right: Output network conductance._
 
-### **Comparison to Original Paper**
+### **Purpose**
 
-* My results **qualitatively resemble** those in the original paper. The network exhibits **memory-like behavior**, with conductance persisting after pulse inputs stop.
-* I did **not calculate power spectral density** or other advanced metrics from the original study because I believe that the network size must be larger and the timestep shorter, which are limited by the processing speed my Python implementation.
-* I also ignored **quantized conductance** effects for simplicity.
+To reproduce memory-like behavior of a simulated silver-sulfide nanowire network (Ag2S-NWN) seen in Kuncic 2018.
 
-In effect, I have accomplished objectives #1 and #2:
-1. To reproduce the **network topology** as described in the original work.
-2. To reproduce the conductance-based **response characteristics** of the network from PWM input.
+### **Results**
 
-### **Performance Observations**
+1. Successfully reproduced the topology of a simulated Ag2S-NWN (_see Figure 1, Network Topology_).
+2. Reproduced the response characteristics of the network (based on total conductance of all junctions) by using a PWM input signal (_see Figure 1, Network Output Conductance_). Please see the Discussion section for more details.
+
+### **Methods**
+
+To calculate network voltages, I simultaneously solved KCL equations for all nodes in the network at each timestep. Bridge growth, annihilation, and conductance were calculated based on a model found in the paper T. Hasegawa, 2011.
+
+_T. Hasegawa et al., "[Atomic Switch: Atom/Ion Movement Controlled Devices for Beyond Von-Neumann Computers](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.201102597)," 2011 Wiley Advanced Materials, doi: https://doi.org/10.1002/adma.201102597._
+
+### **Discussion**
 
 * Conductance rises and remains elevated in response to PWM pulses, suggesting formation and retention of conductive paths.
-* Early wire junctions ("neurons") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
+* Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
 * Time resolution became a bottleneck: bridge dynamics occurred faster than my simulation timestep. This further justified moving to C++ for improved granularity.
 * Lesson learned: for long-term simulation projects or networks with fast-changing dynamics, begin in C++ or a similarly performant environment.
 
