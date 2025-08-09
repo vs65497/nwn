@@ -29,9 +29,14 @@ In effect, I have accomplished objectives #1 and #2:
 * Time resolution became a bottleneck: bridge dynamics occurred faster than my simulation timestep. This further justified moving to C++ for improved granularity.
 * Lesson learned: for long-term simulation projects or networks with fast-changing dynamics, begin in C++ or a similarly performant environment.
 
-## **2. Introduction**
+### **Takeaways**
+This study gave me more confidence to pursue nonlinear dynamical systems and chaos, complexity, and emergence in practice. I have particularly found conversations surrounding "emergence" as difficult because it is not easily demonstrated. John Conway's Game of Life (https://en.wikipedia.org/wiki/Conway's_Game_of_Life), for example, does do a great job at presenting emergence. But even he did not think anything can be done with his discovery, calling it "finished." (https://youtu.be/R9Plq-D1gEk?si=EYvjvpzMf5HmQZY3&t=458) 
 
-### **Context**
+Demonstrating memory in a disorganized system, on my local computer, proved to me that some of my intuitions may be right. At least I have seen that this is worth investigating further.
+
+## **2. Context**
+
+### **Introduction**
 
 In a sequence of ideas, perhaps beginning with Turing's concept of unorganized computers (Turing, Intelligent Machinery, 1948), the field of neuromorphic computing proposes structures modeled after the brain. The term "neuromorphic" meaning brain-like with "neuro" coming from the Greek word for neuron, and "morphic" coming from the Greek word morphē, meaning “form” or “shape.” Given its name by Carver Mead in 1980, Mead makes the case that biological solutions for information-processing systems (I interpret this as meaning "intelligent" systems) surpass digital methods, due to "the use of elementary physical phenomena as computational primitives", and likewise methods using analog signals are superior to those using digital signals. He states that applying adaptive techniques to account for differences between analog and digital components will "naturally" lead to systems which "learn about their environment." (Mead, 1980)
 
@@ -55,7 +60,7 @@ Provided the topology was correctly established, and the neurodal behavior was c
 
 ### **Original Paper’s Methodology**
 
-The original paper describes a computational model built in MATLAB to simulate silver-sulfide nanowire atomic switch networks:
+The original paper describes a computational model built in MATLAB to simulate Ag2S-NWNs:
 
 * Wires are randomly distributed in 2D space with positions and orientations sampled uniformly, and lengths sampled from a gamma distribution.
 * Intersections between wires create junctions where atomic switches form. Each switch is modeled as a function of time and local voltage, with conductive bridge growth occurring when the voltage exceeds a threshold.
@@ -102,12 +107,7 @@ The original paper describes a computational model built in MATLAB to simulate s
 
 * Wire currents don't follow the rules of circuit theory because they are nodes in the network dual representation. There is likely a much better way to model current directions in wires by accounting for micro or nano-Ohm resistances per length of wire. In general, however, drawing currents is likely better for visualization than for quantitative value. Despite any faulty edge cases, I think this implementation is sufficient in understanding network dynamics.
 
-## **4. Discussion**
-
-### **Takeaways***
-This study gave me more confidence to pursue nonlinear dynamical systems and chaos, complexity, and emergence in practice. I have particularly found conversations surrounding "emergence" as difficult because it is not easily demonstrated. John Conway's Game of Life (https://en.wikipedia.org/wiki/Conway's_Game_of_Life), for example, does do a great job at presenting emergence. But even he did not think anything can be done with his discovery, calling it "finished." (https://youtu.be/R9Plq-D1gEk?si=EYvjvpzMf5HmQZY3&t=458) 
-
-Demonstrating memory in a disorganized system, on my local computer, proved to me that some of my intuitions may be right. At least I have seen that this is worth investigating further.
+## **4. Additional Information**
 
 ### **Future Directions**
 
@@ -127,7 +127,7 @@ Demonstrating memory in a disorganized system, on my local computer, proved to m
 * **Simulation timestep** must be selected based on bridge growth rates to avoid skipping critical dynamics.
 * Consider integrating GPU acceleration or sparse solvers for real-time or large-scale simulations.
 
-#### Influences:
+### **Influences**:
 
 * **Underactuated robotics (Russ Tedrake)** (https://underactuated.csail.mit.edu/): Underactuated control means controlling a robots actions around degrees of freedom for which you don't have actuators. This is significant because it is a first step towards exploiting enviornmental dynamics rather than modeling and controlling them (which is how biological organisms deal with the world). 
 * **Control theory vs. machine learning**: This is effectively discussing the difference between modeling from first-principles versus modeling from data. The tension between these fields has led me to ponder the true representation of phenomena and information (in the abstract sense), what it means to "predict" events or to "understand" ideas, and what happens when we use our intellect to accomplish goals in the world.
