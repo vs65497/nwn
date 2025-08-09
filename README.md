@@ -40,21 +40,27 @@ The original paper describes a computational model built in MATLAB to simulate s
 3. Lastly, currents are computed from voltage differences across branches (_see Figures 5 and 6_). Directionality arises from current imbalances (e.g., more current entering from one side of a node).
 
     <img src="https://github.com/vs65497/nwn/blob/main/figure2.png" width="auto">
+    
     _Figure 1. Network conversion to the dual representation._
-    
+   
     <img src="https://github.com/vs65497/nwn/blob/main/figure3.png" width="auto">
+    
     _Figure 2. Dual representation separated to wire (nodal) view._
-    
+   
     <img src="https://github.com/vs65497/nwn/blob/main/figure4.png" width="auto">
+    
     _Figure 3. Generalization of all possible wire topologies._
-    
+   
     <img src="https://github.com/vs65497/nwn/blob/main/circuit_solver.png" width="auto">
-    _Figure 4. Simultaneously solving for network voltages._
     
+    _Figure 4. Simultaneously solving for network voltages._
+   
     <img src="https://github.com/vs65497/nwn/blob/main/figure6.png" width="auto">
+    
     _Figure 5. Modified general wire topology, also including wire ends._
-
+   
     <img src="https://github.com/vs65497/nwn/blob/main/current_solver.png" height="auto">
+    
     _Figure 6. Solving for all wire currents._
 
 ### **Critical Gaps and Problem-Solving**
