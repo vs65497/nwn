@@ -96,9 +96,9 @@ Demonstrating memory in a disorganized system, on my local computer, proved to m
 * Continue building on Kuncic’s line of research to further explore the neuromorphic potential of nanowire networks.
 * Model bridge dynamics with quantized conductance to better match the behavior of physical devices.
 * Investigate optimal network topologies, such as those used in Echo State Networks (ESNs), and assess their advantages over purely random structures.
-* Evaluate randomized networks for the Echo State Property to determine their suitability for reservoir computing.
+* Evaluate randomized networks for the Echo State Property (ESP) to determine their suitability for reservoir computing.
 * Develop alternative methods for designing topology in simulation before construction, potentially using approaches like magnetic field-guided assembly instead of random initialization.
-* Explore ways to compensate for fixed physical topologies through feedback and feedforward mechanisms, possibly using algorithms such as FORCE.
+* Explore ways to compensate for fixed physical topologies through feedback and feedforward mechanisms.
 * Implement verification methods to quantitatively link individual bridge states to network-level conductance, analyze the impact of graph structure on conductance, and measure the nonlinearity of these relationships—addressing the current lack of confirmation that simulated or reported networks behave like true NWNs.
 * Investigate whether modeling the network in two dimensions significantly affects performance compared to a three-dimensional architecture.
 * Study the precise relationship between PWM inputs and memory retention, and test how the network responds to irregular, information-rich signals such as speech patterns.
