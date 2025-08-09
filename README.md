@@ -12,7 +12,7 @@ _Z. Kuncic et al., "[Emergent brain-like complexity from nanowire atomic switch 
 
 _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM signal. Right: Output network conductance._
 
-### [**Purpose**](https://github.com/vs65497/nwn?tab=readme-ov-file#2-purpose)
+### **Purpose** (Click [here](https://github.com/vs65497/nwn?tab=readme-ov-file#2-purpose) to read more)
 
 To reproduce memory-like behavior of a simulated silver-sulfide nanowire network (Ag2S-NWN) seen in Kuncic 2018.
 
@@ -21,13 +21,13 @@ To reproduce memory-like behavior of a simulated silver-sulfide nanowire network
 1. Successfully reproduced the topology of a simulated Ag2S-NWN (_see Figure 1, Network Topology_).
 2. Reproduced the response characteristics of the network (based on total conductance of all junctions) by using a PWM input signal (_see Figure 1, Network Output Conductance_). Please see the Discussion section for more details.
 
-### [**Methods**](https://github.com/vs65497/nwn?tab=readme-ov-file#3-methods)
+### **Methods** (Click [here](https://github.com/vs65497/nwn?tab=readme-ov-file#3-methods) to read more)
 
 To calculate network voltages, I simultaneously solved KCL equations for all nodes in the network at each timestep. Bridge growth, annihilation, and conductance were calculated based on a model found in the paper T. Hasegawa, 2011.
 
 _T. Hasegawa et al., "[Atomic Switch: Atom/Ion Movement Controlled Devices for Beyond Von-Neumann Computers](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.201102597)," 2011 Wiley Advanced Materials, doi: 10.1002/adma.201102597._
 
-### [**Discussion**](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion)
+### **Discussion** (Click [here](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion) to read more)
 
 * Conductance rises and remains elevated in response to PWM pulses, suggesting formation and retention of conductive paths.
 * Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
