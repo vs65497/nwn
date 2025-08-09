@@ -35,17 +35,26 @@ The original paper describes a computational model built in MATLAB to simulate s
 
 ### **My Implementation**
 
-* To solve voltages, I derived an **Ax = b** formulation based on Kirchhoff's Current Law (KCL). Starting from Ohm's Law (V = IR), I express the system as:
+1. To solve voltages, I first convert the network to it's dual representation, with wires becoming nodes and bridge junctions becoming edges (_see Figure 1_). Each edge carries a resistance initialized to the OFF state (non-zero). Then I view each wire (now a node) as its independent connections (_see Figure 2_). And finally, I generalize the wire view to its general topology (_see Figure 3_). This allows for homologous KCL nodal equations.
+2. With all wires in their general form, I now apply KCL to the entire network. By separating out wires with known voltages (Vcc and GND), we can then move these known current values to the RHS and apply the Moore-Penrose Pseudo Inverse to simultaneously solve for network voltages.
 
-    [Insert figures]
+    <img src="https://github.com/vs65497/nwn/blob/main/figure2.png" width="auto">
+    Figure 1. Network conversion to the dual representation.
+    
+    <img src="https://github.com/vs65497/nwn/blob/main/figure3.png" width="auto">
+    Figure 2. Dual representation separated to wire (nodal) view.
+    
+    <img src="https://github.com/vs65497/nwn/blob/main/figure4.png" width="auto">
+    Figure 3. Generalization of all possible wire topologies.
+    
+    <img src="https://github.com/vs65497/nwn/blob/main/circuit_solver.png" width="auto">
+    Figure 4. Simultaneously solving for network voltages.
 
-    [Insert latex images]
+3. Currents are computed from voltage differences across branches. Directionality arises from current imbalances (e.g., more current entering from one side of a node).
 
-* Currents are computed from voltage differences across branches. Directionality arises from current imbalances (e.g., more current entering from one side of a node).
+    <img src="https://github.com/vs65497/nwn/blob/main/figure6.png" width="auto">
 
-    [Insert figures]
-
-    [Insert latex image]
+    <img src="https://github.com/vs65497/nwn/blob/main/current_solver.png" height="auto">
 
 ### **Critical Gaps and Problem-Solving**
 
