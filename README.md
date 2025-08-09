@@ -36,25 +36,26 @@ The original paper describes a computational model built in MATLAB to simulate s
 ### **My Implementation**
 
 1. To solve voltages, I first convert the network to it's dual representation, with wires becoming nodes and bridge junctions becoming edges (_see Figure 1_). Each edge carries a resistance initialized to the OFF state (non-zero). Then I view each wire (now a node) as its independent connections (_see Figure 2_). And finally, I generalize the wire view to its general topology (_see Figure 3_). This allows for homologous KCL nodal equations.
-2. With all wires in their general form, I now apply KCL to the entire network. By separating out wires with known voltages (Vcc and GND), we can then move these known current values to the RHS and apply the Moore-Penrose Pseudo Inverse to simultaneously solve for network voltages.
+2. With all wires in their general form, I now apply KCL to the entire network. By separating out wires with known voltages (Vcc and GND), we can then move these known current values to the RHS and apply the Moore-Penrose Pseudo Inverse to simultaneously solve for network voltages (_see Figure 4_).
+3. Lastly, currents are computed from voltage differences across branches (_see Figures 5 and 6_). Directionality arises from current imbalances (e.g., more current entering from one side of a node).
 
     <img src="https://github.com/vs65497/nwn/blob/main/figure2.png" width="auto">
-    Figure 1. Network conversion to the dual representation.
+    _Figure 1. Network conversion to the dual representation._
     
     <img src="https://github.com/vs65497/nwn/blob/main/figure3.png" width="auto">
-    Figure 2. Dual representation separated to wire (nodal) view.
+    _Figure 2. Dual representation separated to wire (nodal) view._
     
     <img src="https://github.com/vs65497/nwn/blob/main/figure4.png" width="auto">
-    Figure 3. Generalization of all possible wire topologies.
+    _Figure 3. Generalization of all possible wire topologies._
     
     <img src="https://github.com/vs65497/nwn/blob/main/circuit_solver.png" width="auto">
-    Figure 4. Simultaneously solving for network voltages.
-
-3. Currents are computed from voltage differences across branches. Directionality arises from current imbalances (e.g., more current entering from one side of a node).
-
+    _Figure 4. Simultaneously solving for network voltages._
+    
     <img src="https://github.com/vs65497/nwn/blob/main/figure6.png" width="auto">
+    _Figure 5. Modified general wire topology, also including wire ends._
 
     <img src="https://github.com/vs65497/nwn/blob/main/current_solver.png" height="auto">
+    _Figure 6. Solving for all wire currents._
 
 ### **Critical Gaps and Problem-Solving**
 
@@ -63,6 +64,8 @@ The original paper describes a computational model built in MATLAB to simulate s
 The challenge stems from the network’s complexity: any node can branch into an arbitrary number of subgraphs, and these branches may loop back on themselves rather than progress toward the low-voltage terminal. This recurrence strongly resembles the feedback structure of Recurrent Neural Networks (RNNs) and helps explain why methods like Backpropagation Through Time (BPTT) are nontrivial. From this perspective, it was satisfying to observe the “weights” (conductances) of each junction naturally self-organize in response to the input waveform.
 
 Another insight emerged from the fact that, without quantized conductance, the network behaves more like a discrete system than a fully continuous one. Even with quantization, the conductance output is unlikely to be perfectly smooth. This suggests that the network exhibits distinct operational modes, analogous to harmonic resonances. I suspect this may relate to the “edge of chaos” phenomenon—where information organizes into coherent structures under just the right conditions—and believe it merits further investigation.
+
+Wire currents don't follow the rules of circuit theory because they are nodes in the network dual representation. There is likely a much better way to model current directions in wires by accounting for micro or nano-Ohm resistances per length of wire. In general, however, drawing currents is likely better for visualization than for quantitative value. Despite any faulty edge cases, I think this implementation is sufficient in understanding network dynamics.
 
 ## **3. Results**
 
