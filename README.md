@@ -16,28 +16,28 @@ _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM 
 
 <br>
 
-### **Purpose** ([read more](https://github.com/vs65497/nwn?tab=readme-ov-file#2-purpose))
+### **Purpose** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#2-purpose))
 
-  * To reproduce memory-like behavior of a simulated silver-sulfide nanowire network (Ag2S-NWN) seen in Kuncic 2018.
+  * To reproduce the memory-like behavior of a simulated silver-sulfide nanowire network (Ag2S-NWN), as seen in Kuncic 2018.
 
 ### **Results**
 
   1. Successfully reproduced the topology of a simulated Ag2S-NWN (_see Figure 1, Network Topology_).
-  2. Reproduced the response characteristics of the network (based on total conductance of all junctions) by using a PWM input signal (_see Figure 1, Network Output Conductance_). Please see the Discussion section for more details.
+  2. Reproduced the response characteristics of the network (total conductance of all junctions versus time) by using a PWM input signal (_see Figure 1, Network Output Conductance_). Please see the [_Discussion_](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion) section for more details.
 
-### **Methods** ([read more](https://github.com/vs65497/nwn?tab=readme-ov-file#3-methods))
+### **Methods** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#3-methods))
 
   * To calculate network voltages, I simultaneously solved KCL equations for all nodes in the network at each timestep. Bridge growth, annihilation, and conductance were calculated based on a model found in the paper T. Hasegawa, 2011.
   * _T. Hasegawa et al., "[Atomic Switch: Atom/Ion Movement Controlled Devices for Beyond Von-Neumann Computers](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.201102597)," 2011 Wiley Advanced Materials, doi: 10.1002/adma.201102597._
 
-### **Discussion** ([read more](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion))
+### **Discussion** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion))
 
   * Conductance rises and remains elevated in response to PWM pulses, suggesting formation and retention of conductive paths.
   * Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
   * Time resolution became a bottleneck: bridge dynamics occurred faster than my simulation timestep. This further justified moving to C++ for improved granularity.
   * Lesson learned: for long-term simulation projects or networks with fast-changing dynamics, begin in C++ or a similarly performant environment.
 
-<br><br><br>
+<br><br>
 
 ## **2. Purpose**
 
@@ -49,17 +49,15 @@ Following this thinking into practice, we find physical implementations of neura
 
 ### **Motivation for Reproduction**
 
-My interest in this work is the result of an apparent "wandering" between many fields; some of which is visible in my portfolio. This wandering does not come from a lack of focus. Instead, my behavior is the result of chasing some possible system capable of online, adaptive learning. Through interacting with the material (mentioned in the Influences section), I have been slowly approaching the principles found in Reservoir Computing. Professor Kuncic's work was the first I've encountered that expresses some of these ideas. And this makes it the ideal candidate for deep study -- reproduction.
-
-### **Objectives of the Reproduction**
-
-Given my interest in Professor Kuncic's paper, I sought to gain a deeper understanding of the ideas presented by reproducing three key aspects of Kuncic's 2018 paper:
-
-1. The **network topology** as described in the original work.
-2. The conductance-based **response characteristics** of the network from PWM input.
-3. The **relationship between frequency and conductance behavior**.
+I have been searching for systems capable of online, adaptive learning. Through interacting with many influences (some mentioned [_here_](https://github.com/vs65497/nwn?tab=readme-ov-file#influences)), I have been steadily approaching the principles found in Reservoir Computing. Professor Kuncic's work was my first encounter with a practical system matching some of these ideas. I was able to deeply study the concepts presented here by reproducing the paper.
 
 Provided the topology was correctly established, and the neurodal behavior was correctly modeled, showing temporal output gives evidence that the overall silver-sulfied nanowire network (Ag2S-NWN) can produce an emergent singal local rules. 
+
+### **Objectives**
+
+1. To reproduce the **network topology** as described in the original work.
+2. To reproduce the conductance-based **response characteristics** of the network from PWM input.
+3. To reproduce the **relationship between frequency and conductance behavior**.
 
 ## **3. Methods**
 
@@ -139,10 +137,10 @@ Demonstrating memory in a disorganized system, on my local computer, proved to m
 
 ### **Influences**:
 
-* **Underactuated robotics (Russ Tedrake)** (https://underactuated.csail.mit.edu/): Underactuated control means controlling a robots actions around degrees of freedom for which you don't have actuators. This is significant because it is a first step towards exploiting enviornmental dynamics rather than modeling and controlling them (which is how biological organisms deal with the world). 
-* **Control theory vs. machine learning**: This is effectively discussing the difference between modeling from first-principles versus modeling from data. The tension between these fields has led me to ponder the true representation of phenomena and information (in the abstract sense), what it means to "predict" events or to "understand" ideas, and what happens when we use our intellect to accomplish goals in the world.
-* **Swarm Intelligence: From Natural to Artificial Systems (Bonabeau, Dorigo, Theraulaz)** (https://academic.oup.com/book/40811): Swarms are collections of entities which utilize a decentralized means of making decisions and performing actions. A section in the book discusses "stygmergy" where bees, for example, additively build their nests block-by-block rather than following an overall schema. The result is that some of the computation for the building is outsourced from the bee to the structure. This points to the idea of using matter to directly compute rather than logic. At the time, this caused me to look for analog computers.
-* **Neurorobotics (Tiffany Hwu, Jeff Krichmar)** (https://mitpress.mit.edu/9780262047067/neurorobotics/): I mainly drew three ideas from this book: embodiment can give robots natural behavior without modeling and without data, rich environments can provide robots the ability to learn more complex behaviors, and rich bodies are important for taking advantage of such rich environments. In a somewhat indirect way, this eventually led me to developmental robotics and to the idea of bowties (https://en.wikipedia.org/wiki/Bow_tie_(biology)), to which RC's have some relation.
-* **Complexity (Melanie Mitchell)** (https://a.co/d/33P8S10): "Complexity" motivated me to investigate bottom-up systems, self-organization/assembly, and emergent behavior.
-* **"A robust layered control system for a mobile robot" (Rodney Brooks)** (https://ieeexplore.ieee.org/document/1087032): Brooks' subsumption architecture reinforced my interest in behavior-based robotics and low-level intelligent architectures.
-* **Synthetic Intelligence (Zdenka Kuncic)** (https://www.youtube.com/watch?v=c3EVUogQr6k): Professor Kuncic's presentation on nanowire networks and "silver neurons" intrigued me. Although I saw this before everything else, it wasn't until after I had interacted with all of the above influences that I returned to this lecture with seriousness.
+  1. **Underactuated robotics (Russ Tedrake)** (https://underactuated.csail.mit.edu/): Underactuated control means controlling a robots actions around degrees of freedom for which you don't have actuators. This is significant because it is a first step towards exploiting enviornmental dynamics rather than modeling and controlling them (which is how biological organisms deal with the world). 
+  2. **Control theory vs. machine learning**: This is effectively discussing the difference between modeling from first-principles versus modeling from data. The tension between these fields has led me to ponder the true representation of phenomena and information (in the abstract sense), what it means to "predict" events or to "understand" ideas, and what happens when we use our intellect to accomplish goals in the world.
+  3. **Swarm Intelligence: From Natural to Artificial Systems (Bonabeau, Dorigo, Theraulaz)** (https://academic.oup.com/book/40811): Swarms are collections of entities which utilize a decentralized means of making decisions and performing actions. A section in the book discusses "stygmergy" where bees, for example, additively build their nests block-by-block rather than following an overall schema. The result is that some of the computation for the building is outsourced from the bee to the structure. This points to the idea of using matter to directly compute rather than logic. At the time, this caused me to look for analog computers.
+  4. **Neurorobotics (Tiffany Hwu, Jeff Krichmar)** (https://mitpress.mit.edu/9780262047067/neurorobotics/): I mainly drew three ideas from this book: embodiment can give robots natural behavior without modeling and without data, rich environments can provide robots the ability to learn more complex behaviors, and rich bodies are important for taking advantage of such rich environments. In a somewhat indirect way, this eventually led me to developmental robotics and to the idea of bowties (https://en.wikipedia.org/wiki/Bow_tie_(biology)), to which RC's have some relation.
+  5. **Complexity (Melanie Mitchell)** (https://a.co/d/33P8S10): "Complexity" motivated me to investigate bottom-up systems, self-organization/assembly, and emergent behavior.
+  6. **"A robust layered control system for a mobile robot" (Rodney Brooks)** (https://ieeexplore.ieee.org/document/1087032): Brooks' subsumption architecture reinforced my interest in behavior-based robotics and low-level intelligent architectures.
+  7. **Synthetic Intelligence (Zdenka Kuncic)** (https://www.youtube.com/watch?v=c3EVUogQr6k): Professor Kuncic's presentation on nanowire networks and "silver neurons" intrigued me. Although I saw this before everything else, it wasn't until after I had interacted with all of the above influences that I returned to this lecture with seriousness.
