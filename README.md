@@ -12,7 +12,7 @@ _Z. Kuncic et al., "[Emergent brain-like complexity from nanowire atomic switch 
 |---------|---------|---------|
 | ![Network Topology](https://github.com/vs65497/nwn/blob/main/network.png) | ![Input PWM Signal](https://github.com/vs65497/nwn/blob/main/input.png) | ![Network Output Conductance](https://github.com/vs65497/nwn/blob/main/output.png) |
 
-_Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM signal. Right: Output network conductance._
+_Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM signal [0.01, 5.00] Volts. Right: Network Output Conductance._
 
 <br>
 
@@ -100,16 +100,6 @@ The original paper describes a computational model built in MATLAB to simulate A
     
     _Figure 7. Solving for all wire currents._
 
-### **Critical Gaps and Problem-Solving**
-
-* The original paper states only that node voltages were solved simultaneously using Kirchhoff’s Current Law (KCL). While one sentence may be sufficient in hindsight, arriving at that conclusion took considerable effort. I experimented with several alternative approaches before realizing that simultaneous solving was likely the only robust method for a random, highly connected graph.
-
-* The challenge stems from the network’s complexity: any node can branch into an arbitrary number of subgraphs, and these branches may loop back on themselves rather than progress toward the low-voltage terminal. This recurrence strongly resembles the feedback structure of Recurrent Neural Networks (RNNs) and helps explain why methods like Backpropagation Through Time (BPTT) are nontrivial. From this perspective, it was satisfying to observe the “weights” (conductances) of each junction naturally self-organize in response to the input waveform.
-
-* Another insight emerged from the fact that, without quantized conductance, the network behaves more like a discrete system than a fully continuous one. Even with quantization, the conductance output is unlikely to be perfectly smooth. This suggests that the network exhibits distinct operational modes, analogous to harmonic resonances. I suspect this may relate to the “edge of chaos” phenomenon—where information organizes into coherent structures under just the right conditions—and believe it merits further investigation.
-
-* Wire currents don't follow the rules of circuit theory because they are nodes in the network dual representation. There is likely a much better way to model current directions in wires by accounting for micro or nano-Ohm resistances per length of wire. In general, however, drawing currents is likely better for visualization than for quantitative value. Despite any faulty edge cases, I think this implementation is sufficient in understanding network dynamics.
-
 ## **4. Discussion**
 
 ### **Takeaways**
@@ -117,17 +107,22 @@ This study gave me more confidence to pursue nonlinear dynamical systems and cha
 
 Demonstrating memory in a disorganized system, on my local computer, proved to me that some of my intuitions may be right. At least I have seen that this is worth investigating further.
 
+### **Critical Gaps and Problem-Solving**
+
+* Kuncic 2018 states only that node voltages were solved simultaneously using Kirchhoff’s Current Law (KCL). While one sentence may be sufficient in hindsight, arriving at that conclusion took considerable effort. I experimented with several alternative approaches before realizing that simultaneous solving was likely the only robust method for a random, highly connected graph.
+
+* The challenge stems from the network’s complexity: any node can branch into an arbitrary number of subgraphs, and these branches may loop back on themselves rather than progress toward the low-voltage terminal. This recurrence strongly resembles the feedback structure of Recurrent Neural Networks (RNNs) and helps explain why methods like Backpropagation Through Time (BPTT) are nontrivial. From this perspective, it was satisfying to observe the “weights” (conductances) of each junction naturally self-organize in response to the input waveform.
+
+* Another insight emerged from the fact that, without quantized conductance, the network behaves more like a discrete system than a fully continuous one. Even with quantization, the output conductance is unlikely to be perfectly smooth. I wonder if this points to the network having something similar to harmonic resonances. I also wonder if having different resonances at different input frequencies would be related to the concept of the “edge of chaos,” where the network has more rich behavior as it approaches a completely chaotic organization -- more harmonic resonances appear as the network approaches a chaotic organization, but then suddenly loses fixed resonant frequencies once crossing over to a chaotic region of organization.
+
+* Wire currents don't follow the rules of circuit theory because they are nodes in the network dual representation. There is likely a much better way to model current directions in wires by accounting for micro or nano-Ohm resistances per length of wire. In general, however, painting currents on the canvas is likely better for visualization than for quantitative value. Despite any faulty edge cases, I think this implementation is sufficient in understanding network dynamics.
+
 ### **Future Directions**
 
-* Continue building on Kuncic’s line of research to further explore the neuromorphic potential of nanowire networks.
+* Study the relationship between PWM inputs and memory retention. Test how the network responds to irregular, information-rich signals such as speech patterns.
+* Investigate network topologies, such as those used in Echo State Networks (ESNs) and Small-World Networks (SWNs), and assess their advantages over purely random structures. Perform an ablation study to observe the effect of clustering on the network's performance.
+* ESNs -- Evaluate the network from the lens of the Echo State Property (ESP). Because all neurodes are either on or off, the SVD may need to be determined using the total resistance of each wire and its common neurodes rather than each neurode individually.
 * Model bridge dynamics with quantized conductance to better match the behavior of physical devices.
-* Investigate optimal network topologies, such as those used in Echo State Networks (ESNs), and assess their advantages over purely random structures.
-* Evaluate randomized networks for the Echo State Property (ESP) to determine their suitability for reservoir computing.
-* Develop alternative methods for designing topology in simulation before construction, potentially using approaches like magnetic field-guided assembly instead of random initialization.
-* Explore ways to compensate for fixed physical topologies through feedback and feedforward mechanisms.
-* Implement verification methods to quantitatively link individual bridge states to network-level conductance, analyze the impact of graph structure on conductance, and measure the nonlinearity of these relationships—addressing the current lack of confirmation that simulated or reported networks behave like true NWNs.
-* Investigate whether modeling the network in two dimensions significantly affects performance compared to a three-dimensional architecture.
-* Study the precise relationship between PWM inputs and memory retention, and test how the network responds to irregular, information-rich signals such as speech patterns.
 
 ### **Implementation Lessons for Future Work**
 
