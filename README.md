@@ -34,8 +34,7 @@ _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM 
 
   * Conductance rises due to input PWM and remains elevated after disabling input signal, suggesting formation and retention of conductive paths.
   * Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
-  * Low amount of samples per time (low-resolution) became a bottleneck: bridge dynamics occurred faster than my simulation timestep. This further justified moving to C++ for improved granularity.
-  * For long-term simulation projects or networks with fast-changing dynamics, begin projects in C++ rather than Python.
+  * Low amount of samples per time (low-resolution) became a bottleneck: bridge dynamics occurred faster than my simulation timestep.
 
 <br><br>
 
@@ -55,7 +54,7 @@ Following this thinking into practice, we find physical implementations of neura
 
 ## **3. Methods**
 
-### **Original Paper’s Methodology**
+### **Kuncic 2018 Methodology**
 
 The original paper describes a computational model built in MATLAB to simulate Ag2S-NWNs:
 
