@@ -4,8 +4,6 @@
 
 _Z. Kuncic et al., "[Emergent brain-like complexity from nanowire atomic switch networks: Towards neuromorphic synthetic intelligence](https://ieeexplore.ieee.org/document/8626236)," 2018 IEEE 18th International Conference on Nanotechnology (IEEE-NANO), Cork, Ireland, 2018, pp. 1-3, doi: 10.1109/NANO.2018.8626236._
 
-<br>
-
 ## **1. Overview**
 
 | Network Topology | Input PWM Signal | Network Output Conductance |
@@ -13,8 +11,6 @@ _Z. Kuncic et al., "[Emergent brain-like complexity from nanowire atomic switch 
 | ![Network Topology](https://github.com/vs65497/nwn/blob/main/network.png) | ![Input PWM Signal](https://github.com/vs65497/nwn/blob/main/input.png) | ![Network Output Conductance](https://github.com/vs65497/nwn/blob/main/output.png) |
 
 _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM signal [0.01, 5.00] Volts. Right: Network Output Conductance._
-
-<br>
 
 ### **Purpose** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#2-purpose))
 
