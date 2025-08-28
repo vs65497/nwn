@@ -95,6 +95,15 @@ The original paper describes a computational model built in MATLAB to simulate A
 
 ## **4. Discussion**
 
+### **Results**
+
+  1. Successfully reproduced the topology of a simulated Ag2S-NWN (_see Figure 1, Network Topology_).
+  2. Reproduced the output conductance characteristics, with "memory"-like behavior, of the network (total conductance of all junctions versus time) by using a PWM input signal (_see Figure 1, Network Output Conductance_).
+
+  * Conductance rises due to input PWM and remains elevated after disabling input signal, suggesting formation and retention of conductive paths.
+  * Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
+  * Low amount of samples per time (low-resolution) became a bottleneck: bridge dynamics occurred faster than my simulation timestep.
+
 ### **Observations**
 
 * Any section of the network can take the form of an arbitrary subgraphs of arbitrary direction. Walks of these subgraphs which loop back onto themselves show recurrence in the network -- this may partly explain why the network holds memory. When combined with the growth/annihilation of bridges, there appears to be a complex movement of charges through the network, thus describing rich dynamics.
