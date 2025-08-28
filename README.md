@@ -18,7 +18,7 @@ _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM 
 
 ### **Purpose** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#2-purpose))
 
-  * To reproduce the memory-like behavior of a simulated silver-sulfide nanowire network (Ag2S-NWN), as seen in Kuncic 2018.
+  * To reproduce the memory-like behavior of a simulated silver-sulfide nanowire network (Ag2S-NWN), as seen in _Kuncic 2018_.
 
 ### **Results**
 
@@ -109,7 +109,7 @@ Demonstrating memory in a disorganized system, on my local computer, proved to m
 
 ### **Critical Gaps and Problem-Solving**
 
-* Kuncic 2018 states only that node voltages were solved simultaneously using Kirchhoff’s Current Law (KCL). While one sentence may be sufficient in hindsight, arriving at that conclusion took considerable effort. I experimented with several alternative approaches before realizing that simultaneous solving was likely the only robust method for a random, highly connected graph.
+* _Kuncic 2018_ states only that node voltages were solved simultaneously using Kirchhoff’s Current Law (KCL). While one sentence may be sufficient in hindsight, arriving at that conclusion took considerable effort. I experimented with several alternative approaches before realizing that simultaneous solving was likely the only robust method for a random, highly connected graph.
 
 * The challenge stems from the network’s complexity: any node can branch into an arbitrary number of subgraphs, and these branches may loop back on themselves rather than progress toward the low-voltage terminal. This recurrence strongly resembles the feedback structure of Recurrent Neural Networks (RNNs) and helps explain why methods like Backpropagation Through Time (BPTT) are nontrivial. From this perspective, it was satisfying to observe the “weights” (conductances) of each junction naturally self-organize in response to the input waveform.
 
