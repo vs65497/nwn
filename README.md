@@ -27,12 +27,12 @@ _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM 
 
 ### **Methods** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#3-methods))
 
-  * To calculate network voltages, I simultaneously solved KCL equations for all nodes in the network at each timestep. Bridge growth, annihilation, and conductance were calculated based on a model found in the paper T. Hasegawa, 2011.
+  * To calculate network voltages, I simultaneously solved KCL equations for all nodes in the network at each timestep. Bridge growth, annihilation, and conductance were calculated based on a model found in the paper _T. Hasegawa, 2011_.
   * _T. Hasegawa et al., "[Atomic Switch: Atom/Ion Movement Controlled Devices for Beyond Von-Neumann Computers](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.201102597)," 2011 Wiley Advanced Materials, doi: 10.1002/adma.201102597._
 
 ### **Discussion** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion))
 
-  * Conductance rises and remains elevated in response to PWM pulses, suggesting formation and retention of conductive paths.
+  * Conductance rises due to input PWM and remains elevated after disabling input signal, suggesting formation and retention of conductive paths.
   * Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
   * Time resolution became a bottleneck: bridge dynamics occurred faster than my simulation timestep. This further justified moving to C++ for improved granularity.
   * Lesson learned: for long-term simulation projects or networks with fast-changing dynamics, begin in C++ or a similarly performant environment.
