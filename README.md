@@ -56,7 +56,7 @@ Provided the topology was correctly established, and the neurodal behavior was c
 ### **Objectives**
 
 1. To reproduce the **network topology** as described in the original work.
-2. To reproduce the conductance-based **response characteristics** of the network from PWM input.
+2. To reproduce the conductance-based **response characteristics** of the network from PWM input. The output conductance should remain high after disabling the input signal.
 3. To reproduce the **relationship between frequency and conductance behavior**.
 
 ## **3. Methods**
