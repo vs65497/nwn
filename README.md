@@ -47,12 +47,6 @@ In a sequence of ideas, perhaps beginning with Turing's concept of unorganized c
 
 Following this thinking into practice, we find physical implementations of neural networks. In this study, I explore how Kuncic et. al. simulate an atomic switch network. Each junction between silver-sulfide (Ag2S) nanowires act as a memristor which "mimics the chemical synapse between neurons in response to electrical stimuli," and "when connected together in a self-organized manner, similar to a neuronal network, atomic switch networks exhibit emergent brain-like complexity properties, including nonlinear stochastic dynamics and memorization, making them a unique experimental system for emulating intelligence." (_Kuncic 2018_)
 
-### **Motivation for Reproduction**
-
-I have been searching for systems capable of online, adaptive learning. Through interacting with many influences (some mentioned [_here_](https://github.com/vs65497/nwn?tab=readme-ov-file#influences)), I have been steadily approaching the principles found in Reservoir Computing. Professor Kuncic's work was my first encounter with a practical system matching some of these ideas. I was able to deeply study the concepts presented here by reproducing the paper.
-
-Provided the topology was correctly established, and the neurodal behavior was correctly modeled, showing temporal output gives evidence that the overall silver-sulfied nanowire network (Ag2S-NWN) can produce an emergent singal local rules. 
-
 ### **Objectives**
 
 1. To reproduce the **network topology** as described in the original work.
