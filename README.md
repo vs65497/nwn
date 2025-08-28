@@ -72,7 +72,7 @@ The original paper describes a computational model built in MATLAB to simulate A
 
 ### **My Implementation**
 
-1. To solve voltages, I first convert the network to it's dual representation, with wires becoming nodes and bridge junctions becoming edges (_see Figure 2_). Each edge carries a resistance initialized to the OFF state (non-zero). Then I view each wire (now a node) as its independent connections (_see Figure 3_). And finally, I generalize the wire view to its general topology (_see Figure 4_). This allows for homologous KCL nodal equations.
+1. To solve voltages, I first convert the network to its dual representation, with wires becoming nodes and bridge junctions becoming edges (_see Figure 2_). Each edge carries a resistance initialized to the OFF state (non-zero). Then I view each wire (now a node) as its independent connections (_see Figure 3_). And finally, I generalize the wire view to its general topology (_see Figure 4_). This allows for homologous KCL nodal equations.
 2. With all wires in their general form, I now apply KCL to the entire network. By separating out wires with known voltages (Vcc and GND), we can then move these known current values to the RHS and apply the Moore-Penrose Pseudo Inverse to simultaneously solve for network voltages (_see Figure 5_).
 3. Lastly, currents are computed from voltage differences across branches (_see Figures 6 and 7_). Directionality arises from current imbalances (e.g., more current entering from one side of a node).
 
