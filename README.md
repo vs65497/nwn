@@ -32,7 +32,7 @@ _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM 
   * The output conductance may be in discrete steps due to the amount of neurodes in the network or a lack of implementation of quantum conductance.
   * The direction of currents in wires would be better determined by using a measurement of per length resistivity.
 
-<br><br>
+<br>
 
 ## **2. Purpose**
 
