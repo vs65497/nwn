@@ -97,9 +97,9 @@ The original paper describes a computational model built in MATLAB to simulate A
 
 ### **Observations**
 
-* Any node can branch into an arbitrary number of subgraphs, and these branches may loop back on themselves rather than progress toward the low-voltage terminal. This recurrence strongly resembles the feedback structure of Recurrent Neural Networks (RNNs) and helps explain why methods like Backpropagation Through Time (BPTT) are nontrivial. From this perspective, it was satisfying to observe the “weights” (conductances) of each junction naturally self-organize in response to the input waveform.
+* Any section of the network can take the form of an arbitrary subgraphs of arbitrary direction. Walks of these subgraphs which loop back onto themselves show recurrence in the network -- this may partly explain why the network holds memory. When combined with the growth/annihilation of bridges, there appears to be a complex movement of charges through the network, thus describing rich dynamics.
 
-* The network outputs a conductance in discrete steps. This may have to do with the small amount of neurodes or that quantized conductance has not been implemented. It may be possible that the output conductance approaches a smooth curve (differentiable) with quantized conductance.
+* The network responds with an output conductance in discrete steps. This may have to do with the small amount of neurodes or a lack of implementation of quantized conductance. It may be possible that the output conductance approaches a smooth curve (differentiable) with quantized conductance.
 
 * Wire currents don't follow the rules of circuit theory because they are nodes in the network dual representation. There is likely a much better way to model current directions in wires by accounting for micro or nano-Ohm resistances per length of wire. In general, however, painting currents on the canvas is likely better for visualization than for quantitative value. Despite any faulty edge cases, I think this implementation is sufficient in understanding network dynamics.
 
