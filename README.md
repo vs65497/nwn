@@ -27,7 +27,7 @@ _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM 
 
 ### **Methods** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#3-methods))
 
-  * To calculate network voltages, I simultaneously solved KCL equations for all nodes in the network at each timestep. Bridge growth, annihilation, and conductance were calculated based on a model found in the paper _T. Hasegawa, 2011_.
+  * To calculate network voltages, I simultaneously solved Kirchhoff’s Current Law (KCL) equations for all nodes in the network at each timestep. Bridge growth, annihilation, and conductance were calculated based on a model found in the paper _T. Hasegawa, 2011_.
   * _T. Hasegawa et al., "[Atomic Switch: Atom/Ion Movement Controlled Devices for Beyond Von-Neumann Computers](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.201102597)," 2011 Wiley Advanced Materials, doi: 10.1002/adma.201102597._
 
 ### **Discussion** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion))
@@ -109,7 +109,7 @@ Demonstrating memory in a disorganized system, on my local computer, proved to m
 
 ### **Critical Gaps and Problem-Solving**
 
-* _Kuncic 2018_ states only that node voltages were solved simultaneously using Kirchhoff’s Current Law (KCL). While one sentence may be sufficient in hindsight, arriving at that conclusion took considerable effort. I experimented with several alternative approaches before realizing that simultaneous solving was likely the only robust method for a random, highly connected graph.
+* _Kuncic 2018_ states only that node voltages were solved simultaneously using KCL. While one sentence may be sufficient in hindsight, arriving at that conclusion took considerable effort. I experimented with several alternative approaches before realizing that simultaneous solving was likely the only robust method for a random, highly connected graph.
 
 * The challenge stems from the network’s complexity: any node can branch into an arbitrary number of subgraphs, and these branches may loop back on themselves rather than progress toward the low-voltage terminal. This recurrence strongly resembles the feedback structure of Recurrent Neural Networks (RNNs) and helps explain why methods like Backpropagation Through Time (BPTT) are nontrivial. From this perspective, it was satisfying to observe the “weights” (conductances) of each junction naturally self-organize in response to the input waveform.
 
