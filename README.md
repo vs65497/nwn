@@ -120,7 +120,7 @@ Demonstrating memory in a disorganized system, on my local computer, proved to m
 ### **Future Directions**
 
 * Study the relationship between PWM inputs and memory retention. Test how the network responds to irregular, information-rich signals such as speech patterns.
-* Investigate network topologies, such as those used in Echo State Networks (ESNs) and Small-World Networks (SWNs), and assess their advantages over purely random structures. Perform an ablation study to observe the effect of clustering on the network's performance.
+* Investigate network topologies, such as Echo State Networks (ESNs) and Small-World Networks (SWNs), and assess their advantages over purely random structures. Perform an ablation study to determine the effect of network configuration on the its performance.
 * ESNs -- Evaluate the network from the lens of the Echo State Property (ESP). Because all neurodes are either on or off, the SVD may need to be determined using the total resistance of each wire and its common neurodes rather than each neurode individually.
 * Model bridge dynamics with quantized conductance to better match the behavior of physical devices.
 
