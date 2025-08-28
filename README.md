@@ -32,9 +32,9 @@ _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM 
 
 ### **Discussion** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion))
 
-  * Conductance rises due to input PWM and remains elevated after disabling input signal, suggesting formation and retention of conductive paths.
-  * Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
-  * Low amount of samples per time (low-resolution) became a bottleneck: bridge dynamics occurred faster than my simulation timestep.
+  * The output conductance rises due to input PWM and remains elevated after disabling input signal, suggesting formation and retention of conductive paths.
+  * The output conductance may be in discrete steps due to the amount of neurodes in the network or a lack of implementation of quantum conductance.
+  * The direction of currents in wires would be better determined by using a measurement of per length resistivity.
 
 <br><br>
 
@@ -100,15 +100,11 @@ The original paper describes a computational model built in MATLAB to simulate A
   1. Successfully reproduced the topology of a simulated Ag2S-NWN (_see Figure 1, Network Topology_).
   2. Reproduced the output conductance characteristics, with "memory"-like behavior, of the network (total conductance of all junctions versus time) by using a PWM input signal (_see Figure 1, Network Output Conductance_).
 
-  * Conductance rises due to input PWM and remains elevated after disabling input signal, suggesting formation and retention of conductive paths.
-  * Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
-  * Low amount of samples per time (low-resolution) became a bottleneck: bridge dynamics occurred faster than my simulation timestep.
-
 ### **Observations**
 
-* Any section of the network can take the form of an arbitrary subgraphs of arbitrary direction. Walks of these subgraphs which loop back onto themselves show recurrence in the network -- this may partly explain why the network holds memory. When combined with the growth/annihilation of bridges, there appears to be a complex movement of charges through the network, thus describing rich dynamics.
+* Any section of the network can take the form of an arbitrary subgraphs of arbitrary direction. Walks of these subgraphs which loop back onto themselves define recurrence in the network -- this may partly explain why the network holds memory. When combined with the growth/annihilation of bridges, there appears to be a complex movement of charges back and forth in the network. These rich dynamics, I believe, are the reason why conductance rises while the input signal is enabled and stays stuck on after disabling the input. Once the energy has been pumped into the network, opposing sets of bridges act as source and drain pairs for each other, effectively trapping energy in the system. This *is* memory to some extent.
 
-* The network responds with an output conductance in discrete steps. This may have to do with the small amount of neurodes or a lack of implementation of quantized conductance. It may be possible that the output conductance approaches a smooth curve (differentiable) with quantized conductance.
+* The network responds with an output conductance in discrete steps. This may have to do with the small amount of neurodes or a lack of implementation of quantized conductance. It may be possible that the output conductance approaches a smooth curve (differentiable) with quantized conductance. In _Figure 1_, we can see an output behaviour matching the input PWM signal. This may be the result of early neurodes toggling with the input due to too low resolution of timesteps (the timestep length is too long, thereby allowing the bridge length to saturate within each step).
 
 * Circuit theory only describes current in branches, not in nodes. In our network, wires behave as nodes with distance between branches. Regardless if current is defined as the movement of electrons or charges, a current will between branches on the same wire. At least when using our idealized depiction of the network, we cannot use Ohm's Law to determine the direction of the currents because the wires are ideal conductors (zero resistance). Perhaps a better way of tracking the direction of the in-wire current is to use a measure of per-length resistivity. However, painting currents on the canvas is likely better for visualization than for analytical value. There is at least one faulty edge case in the implementation of my current painting function, but this is likely sufficient to understand the flow of charge in the network per an arbitrary snapshot.
 
@@ -121,10 +117,10 @@ The original paper describes a computational model built in MATLAB to simulate A
 
 ### **Influences**:
 
-  1. **Underactuated robotics (Russ Tedrake)** (https://underactuated.csail.mit.edu/): Underactuated control means controlling a robots actions around degrees of freedom for which you don't have actuators. This is significant because it is a first step towards exploiting enviornmental dynamics rather than modeling and controlling them (which is how biological organisms deal with the world). 
+  1. **Underactuated robotics (Russ Tedrake)** (https://underactuated.csail.mit.edu/): Underactuated control of robots is around degrees of freedom for which there are no actuators. This is significant because it is a first step towards exploiting enviornmental dynamics rather than modeling and controlling them (which is how biological organisms deal with the world). 
   2. **Control theory vs. machine learning**: This is effectively discussing the difference between modeling from first-principles versus modeling from data. The tension between these fields has led me to ponder the true representation of phenomena and information (in the abstract sense), what it means to "predict" events or to "understand" ideas, and what happens when we use our intellect to accomplish goals in the world.
   3. **Swarm Intelligence: From Natural to Artificial Systems (Bonabeau, Dorigo, Theraulaz)** (https://academic.oup.com/book/40811): Swarms are collections of entities which utilize a decentralized means of making decisions and performing actions. A section in the book discusses "stigmergy" where bees, for example, additively build their nests block-by-block rather than following an overall schema. The result is that some of the computation for the building is outsourced from the bee to the structure. This points to the idea of using matter to directly compute rather than logic. At the time, this caused me to look for analog computers.
-  4. **Neurorobotics (Tiffany Hwu, Jeff Krichmar)** (https://mitpress.mit.edu/9780262047067/neurorobotics/): I mainly drew three ideas from this book: embodiment can give robots natural behavior without modeling and without data, rich environments can provide robots the ability to learn more complex behaviors, and rich bodies are important for taking advantage of such rich environments. In a somewhat indirect way, this eventually led me to developmental robotics and to the idea of bowties (https://en.wikipedia.org/wiki/Bow_tie_(biology)), to which RC's have some relation.
+  4. **Neurorobotics (Tiffany Hwu, Jeff Krichmar)** (https://mitpress.mit.edu/9780262047067/neurorobotics/): I mainly drew three ideas from this book: embodiment can give robots natural behavior without modeling and without data, rich environments can provide robots the ability to learn more complex behaviors, and rich bodies are important for taking advantage of such rich environments. In a somewhat indirect way, this eventually led me to developmental robotics and to the idea of bowties (https://en.wikipedia.org/wiki/Bow_tie_(biology)), to which Reservoir Computers's have some relation.
   5. **Complexity (Melanie Mitchell)** (https://a.co/d/33P8S10): "Complexity" motivated me to investigate bottom-up systems, self-organization/assembly, and emergent behavior.
   6. **"A robust layered control system for a mobile robot" (Rodney Brooks)** (https://ieeexplore.ieee.org/document/1087032): Brooks' subsumption architecture reinforced my interest in behavior-based robotics and low-level intelligent architectures.
   7. **Synthetic Intelligence (Zdenka Kuncic)** (https://www.youtube.com/watch?v=c3EVUogQr6k): Professor Kuncic's presentation on nanowire networks and "silver neurons" intrigued me. Although I saw this before everything else, it wasn't until after I had interacted with all of the above influences that I returned to this lecture with seriousness.
