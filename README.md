@@ -124,12 +124,6 @@ Demonstrating memory in a disorganized system, on my local computer, proved to m
 * ESNs -- Evaluate the network from the lens of the Echo State Property (ESP). Because all neurodes are either on or off, the SVD may need to be determined using the total resistance of each wire and its common neurodes rather than each neurode individually.
 * Model bridge dynamics with quantized conductance to better match the behavior of physical devices.
 
-### **Implementation Lessons for Future Work**
-
-* **Bridge modeling** should incorporate quantized conductance to reflect real-world behavior more accurately.
-* **Simulation timestep** must be selected based on bridge growth rates to avoid skipping critical dynamics.
-* Consider integrating GPU acceleration or sparse solvers for real-time or large-scale simulations.
-
 ### **Influences**:
 
   1. **Underactuated robotics (Russ Tedrake)** (https://underactuated.csail.mit.edu/): Underactuated control means controlling a robots actions around degrees of freedom for which you don't have actuators. This is significant because it is a first step towards exploiting enviornmental dynamics rather than modeling and controlling them (which is how biological organisms deal with the world). 
