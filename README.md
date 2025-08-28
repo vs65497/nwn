@@ -23,7 +23,7 @@ _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM 
 ### **Results**
 
   1. Successfully reproduced the topology of a simulated Ag2S-NWN (_see Figure 1, Network Topology_).
-  2. Reproduced the output conductance characteristics, with "memory"-like behavior, of the network (total conductance of all junctions versus time) by using a PWM input signal (_see Figure 1, Network Output Conductance_). Please see the [_Discussion_](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion) section for more details.
+  2. Reproduced the output conductance characteristics, with "memory"-like behavior, of the network (total conductance of all junctions versus time) by enabling then disabling input PWM signal (_see Figure 1, Network Output Conductance_). Please see the [_Discussion_](https://github.com/vs65497/nwn?tab=readme-ov-file#4-discussion) section for more details.
 
 ### **Methods** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#3-methods))
 
@@ -98,7 +98,7 @@ The original paper describes a computational model built in MATLAB to simulate A
 ### **Results**
 
   1. Successfully reproduced the topology of a simulated Ag2S-NWN (_see Figure 1, Network Topology_).
-  2. Reproduced the output conductance characteristics, with "memory"-like behavior, of the network (total conductance of all junctions versus time) by using a PWM input signal (_see Figure 1, Network Output Conductance_).
+  2. Reproduced the output conductance characteristics, with "memory"-like behavior, of the network (total conductance of all junctions versus time) by enabling then disabling input PWM signal (_see Figure 1, Network Output Conductance_).
 
 ### **Observations**
 
