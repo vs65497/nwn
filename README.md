@@ -101,7 +101,7 @@ The original paper describes a computational model built in MATLAB to simulate A
 
 * The network responds with an output conductance in discrete steps. This may have to do with the small amount of neurodes or a lack of implementation of quantized conductance. It may be possible that the output conductance approaches a smooth curve (differentiable) with quantized conductance.
 
-* Wire currents don't follow the rules of circuit theory because they are nodes in the network dual representation. There is likely a much better way to model current directions in wires by accounting for micro or nano-Ohm resistances per length of wire. In general, however, painting currents on the canvas is likely better for visualization than for quantitative value. Despite any faulty edge cases, I think this implementation is sufficient in understanding network dynamics.
+* Circuit theory only describes current in branches, not in nodes. In our network, wires behave as nodes with distance between branches. Regardless if current is defined as the movement of electrons or charges, a current will between branches on the same wire. At least when using our idealized depiction of the network, we cannot use Ohm's Law to determine the direction of the currents because the wires are ideal conductors (zero resistance). Perhaps a better way of tracking the direction of the in-wire current is to use a measure of per-length resistivity. However, painting currents on the canvas is likely better for visualization than for analytical value. There is at least one faulty edge case in the implementation of my current painting function, but this is likely sufficient to understand the flow of charge in the network per an arbitrary snapshot.
 
 ### **Future Directions**
 
