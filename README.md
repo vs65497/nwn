@@ -96,11 +96,11 @@ The original paper describes a computational model built in MATLAB to simulate A
 
 ## **4. Discussion**
 
-### **Challenges**
+### **Observations**
 
 * Any node can branch into an arbitrary number of subgraphs, and these branches may loop back on themselves rather than progress toward the low-voltage terminal. This recurrence strongly resembles the feedback structure of Recurrent Neural Networks (RNNs) and helps explain why methods like Backpropagation Through Time (BPTT) are nontrivial. From this perspective, it was satisfying to observe the “weights” (conductances) of each junction naturally self-organize in response to the input waveform.
 
-* Without quantized conductance the network behaves more like a discrete system than a fully continuous one. Even with quantization, the output conductance is unlikely to be perfectly smooth. I wonder if this points to the network having something similar to harmonic resonances. I also wonder if having different resonances at different input frequencies would be related to the concept of the “edge of chaos,” where the network has more rich behavior as it approaches a completely chaotic organization -- more harmonic resonances appear as the network approaches a chaotic organization, but then suddenly loses fixed resonant frequencies once crossing over to a chaotic region of organization.
+* The network outputs a conductance in discrete steps. This may have to do with the small amount of neurodes or that quantized conductance has not been implemented. It may be possible that the output conductance approaches a smooth curve (differentiable) with quantized conductance.
 
 * Wire currents don't follow the rules of circuit theory because they are nodes in the network dual representation. There is likely a much better way to model current directions in wires by accounting for micro or nano-Ohm resistances per length of wire. In general, however, painting currents on the canvas is likely better for visualization than for quantitative value. Despite any faulty edge cases, I think this implementation is sufficient in understanding network dynamics.
 
