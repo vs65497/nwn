@@ -34,8 +34,8 @@ _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM 
 
   * Conductance rises due to input PWM and remains elevated after disabling input signal, suggesting formation and retention of conductive paths.
   * Early wire junctions ("neurodes") respond almost instantaneously to input signals, indicating low latency and rapid bridge formation.
-  * Time resolution became a bottleneck: bridge dynamics occurred faster than my simulation timestep. This further justified moving to C++ for improved granularity.
-  * Lesson learned: for long-term simulation projects or networks with fast-changing dynamics, begin in C++ or a similarly performant environment.
+  * Low amount of samples per time (low-resolution) became a bottleneck: bridge dynamics occurred faster than my simulation timestep. This further justified moving to C++ for improved granularity.
+  * For long-term simulation projects or networks with fast-changing dynamics, begin projects in C++ rather than Python.
 
 <br><br>
 
