@@ -18,7 +18,7 @@ _Figure 1. Reproduced results. Left: Random network topology. Center: Input PWM 
 
 ### **Purpose** ([_read more_](https://github.com/vs65497/nwn?tab=readme-ov-file#2-purpose))
 
-  * To reproduce the "memory"-like behavior, indicated by output conductance, of a simulated silver-sulfide nanowire network (Ag2S-NWN), as seen in _Kuncic 2018_. The output conductance is observed having a steep rise while an input PWM signal is enabled, then settles at a non-zero value after the input is disabled.
+  * To reproduce the "memory"-like behavior, indicated by output conductance, of a simulated silver-sulfide nanowire network (Ag2S-NWN), as seen in _Kuncic 2018_. Output conductance of the network is observed as having a steep rise while the input PWM signal is enabled, then settles at a non-zero value after the input is disabled.
 
 ### **Results**
 
