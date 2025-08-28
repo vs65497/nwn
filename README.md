@@ -96,13 +96,6 @@ The original paper describes a computational model built in MATLAB to simulate A
 
 ## **4. Discussion**
 
-### **Takeaways**
-This study gave me more confidence to pursue nonlinear dynamical systems and chaos, complexity, and emergence in practice. I have particularly found conversations surrounding "emergence" as difficult because it is not easily demonstrated. John Conway's Game of Life (https://en.wikipedia.org/wiki/Conway's_Game_of_Life), for example, does do a great job at presenting emergence. But even he did not think anything can be done with his discovery, calling it "finished." (https://youtu.be/R9Plq-D1gEk?si=EYvjvpzMf5HmQZY3&t=458) 
-
-Demonstrating memory in a disorganized system, on my local computer, proved to me that some of my intuitions may be right. At least I have seen that this is worth investigating further.
-
-### **Problem-Solving**
-
 * Any node can branch into an arbitrary number of subgraphs, and these branches may loop back on themselves rather than progress toward the low-voltage terminal. This recurrence strongly resembles the feedback structure of Recurrent Neural Networks (RNNs) and helps explain why methods like Backpropagation Through Time (BPTT) are nontrivial. From this perspective, it was satisfying to observe the “weights” (conductances) of each junction naturally self-organize in response to the input waveform.
 
 * Without quantized conductance the network behaves more like a discrete system than a fully continuous one. Even with quantization, the output conductance is unlikely to be perfectly smooth. I wonder if this points to the network having something similar to harmonic resonances. I also wonder if having different resonances at different input frequencies would be related to the concept of the “edge of chaos,” where the network has more rich behavior as it approaches a completely chaotic organization -- more harmonic resonances appear as the network approaches a chaotic organization, but then suddenly loses fixed resonant frequencies once crossing over to a chaotic region of organization.
